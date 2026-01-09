@@ -3,6 +3,12 @@ name: eShopOnWeb Build and Test
 #Triggers (uncomment line below to use it)
 on: [push, workflow_dispatch]
 
+# --- 权限设置 ---
+# 必须显式声明，允许工作流从 GitHub 的 OIDC 提供商获取 JWT
+permissions:
+  id-token: write # 允许获取 OIDC ID Token
+  contents: read # 允许检出代码
+
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
   RESOURCE-GROUP: rg-eshoponweb
